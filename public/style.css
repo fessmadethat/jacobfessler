@@ -24,8 +24,10 @@ body {
 
 main { max-width: 100%; text-align: left; }
 
+h1,
 p {
   margin: 0 0 var(--gap);
+  font: inherit;
   overflow-wrap: break-word;
 }
 p:last-child { margin-bottom: 0; }
