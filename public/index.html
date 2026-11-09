@@ -6,6 +6,18 @@
   <title>Jacob Fessler</title>
   <meta name="description" content="jacob fessler. currently working with EFC.">
   <meta name="theme-color" content="#ffffff">
+  <script>
+    (function () {
+      var d = document.documentElement, t;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (t !== "dark" && t !== "light") {
+        t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      d.setAttribute("data-theme", t);
+      var m = document.querySelector('meta[name="theme-color"]');
+      if (m) m.content = t === "dark" ? "#0a0a0a" : "#ffffff";
+    })();
+  </script>
   <link rel="canonical" href="https://jacobfessler.com/">
 
   <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -40,8 +52,10 @@
   </script>
   <link rel="preload" href="/fonts/Aileron-Regular.otf" as="font" type="font/otf" crossorigin>
   <link rel="stylesheet" href="/style.css">
+  <script src="/theme.js" defer></script>
 </head>
 <body>
+  <button class="theme-toggle" type="button" aria-label="Switch to dark mode" hidden>dark</button>
   <main>
     <h1>hello.</h1>
     <p>currently working with <span class="efc">EFC</span>.</p>
